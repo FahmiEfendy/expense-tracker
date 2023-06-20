@@ -1,6 +1,6 @@
 import "./ExpenseItem.css";
-import Card from "../../templates/Card";
 import { ExpenseDate } from "../";
+import Card from "../../Layout/Card";
 
 const ExpenseItem = (props) => {
   const { date, item, price } = props;
