@@ -1,13 +1,29 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./ExpenseForm.css";
+import { editExpense } from "../../Expenses/expenseSlice";
+import { offEditState } from "../../Expenses/editStateSlice";
 
 const ExpenseForm = (props) => {
-  const { newExpenseHandler, isEditing, setIsEditing } = props;
+  const { newExpenseHandler } = props;
 
-  const [enteredItem, setEnteredItem] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
-  const [enteredPrice, setEnteredPrice] = useState("");
+  const dispatch = useDispatch();
+
+  const onEdit = useSelector((state) => state.editState.onEdit);
+  const editId = useSelector((state) => state.editState.editId);
+
+  const expenses = useSelector((state) => state.expenses);
+
+  const selectedExpense = expenses.find((expense) => expense.id === editId);
+
+  const [enteredItem, setEnteredItem] = useState(selectedExpense?.item || "");
+  const [enteredDate, setEnteredDate] = useState(
+    new Date(selectedExpense?.date).toLocaleDateString("fr-CA") || ""
+  );
+  const [enteredPrice, setEnteredPrice] = useState(
+    selectedExpense?.price || ""
+  );
 
   const itemChangeHandler = (e) => {
     setEnteredItem(e.target.value);
@@ -21,6 +37,12 @@ const ExpenseForm = (props) => {
     setEnteredDate(e.target.value);
   };
 
+  const clearInputHandler = () => {
+    setEnteredItem("");
+    setEnteredPrice("");
+    setEnteredDate("");
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -30,21 +52,24 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    newExpenseHandler(newExpense);
+    if (onEdit === "add") {
+      newExpenseHandler(newExpense);
+    } else if (onEdit === "edit") {
+      dispatch(editExpense({ id: editId, ...newExpense }));
+    }
 
-    setEnteredItem("");
-    setEnteredPrice("");
-    setEnteredDate("");
-
-    setIsEditing(!isEditing);
+    clearInputHandler();
+    dispatch(offEditState());
   };
 
   const buttonHandler = () => {
-    setIsEditing(!isEditing);
+    clearInputHandler();
+    dispatch(offEditState());
   };
 
   return (
     <form onSubmit={submitHandler}>
+      <h2>{editId ? "Edit Expense" : "New Expense"}</h2>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Item</label>
@@ -84,7 +109,9 @@ const ExpenseForm = (props) => {
       </div>
       <div className="new-expense__actions">
         <button onClick={buttonHandler}>Cancel</button>
-        <button type="submit">Add Expense</button>
+        <button type="submit">
+          {onEdit === "edit" ? "Save Changes" : "Add Expense"}
+        </button>
       </div>
     </form>
   );

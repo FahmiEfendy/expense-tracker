@@ -37,13 +37,20 @@
   border-radius: 12px;
 }
 
-.delete-icon-container {
+.icon-container {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
   margin-left: 0.5rem;
-  background-color: red;
   border-radius: 0.25rem;
+}
+
+.edit-icon {
+  background-color: white;
+}
+
+.delete-icon {
+  background-color: red;
 }
 
 @media (min-width: 580px) {

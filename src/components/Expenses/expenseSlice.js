@@ -50,9 +50,22 @@ export const expenseSlice = createSlice({
     deleteExpense: (state, action) => {
       return state.filter((expense) => expense.id !== action.payload.id);
     },
+    editExpense: (state, action) => {
+      return state.map((expense) => {
+        if (expense.id === action.payload.id) {
+          return {
+            id: action.payload.id,
+            date: action.payload.date,
+            item: action.payload.item,
+            price: action.payload.price,
+          };
+        }
+        return expense;
+      });
+    },
   },
 });
 
-export const { addExpense, deleteExpense } = expenseSlice.actions;
+export const { addExpense, deleteExpense, editExpense } = expenseSlice.actions;
 
 export default expenseSlice.reducer;
