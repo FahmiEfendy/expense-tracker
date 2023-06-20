@@ -3,8 +3,15 @@
   padding: 0;
 }
 
-.expenses-list__fallback {
+.expenses-list__fallback,
+.expenses-total {
   color: white;
+}
+
+.expenses-list__fallback {
   text-align: center;
-  color: "white";
+}
+
+.expenses-total {
+  margin-top: 2rem;
 }
