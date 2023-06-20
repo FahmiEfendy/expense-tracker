@@ -37,6 +37,15 @@
   border-radius: 12px;
 }
 
+.delete-icon-container {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  background-color: red;
+  border-radius: 0.25rem;
+}
+
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;

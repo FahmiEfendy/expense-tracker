@@ -16,6 +16,7 @@ export const ExpenseList = (props) => {
         filteredExpenses.map((expense) => (
           <ExpenseItem
             key={expense.id}
+            id={expense.id}
             date={expense.date}
             item={expense.item}
             price={expense.price}
