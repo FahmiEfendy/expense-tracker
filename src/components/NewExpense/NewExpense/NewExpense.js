@@ -9,7 +9,6 @@ const NewExpense = (props) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const newExpenseHandler = (newExpense) => {
-    newExpense = { ...newExpense, id: Math.random().toString() };
     retrieveExpenseHandler(newExpense);
   };
 
