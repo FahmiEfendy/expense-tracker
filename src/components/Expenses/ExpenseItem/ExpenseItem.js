@@ -1,4 +1,3 @@
-import "boxicons";
 import { useDispatch } from "react-redux";
 
 import "./ExpenseItem.css";

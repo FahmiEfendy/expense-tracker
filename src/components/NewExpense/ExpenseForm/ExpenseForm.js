@@ -19,7 +19,9 @@ const ExpenseForm = (props) => {
 
   const [enteredItem, setEnteredItem] = useState(selectedExpense?.item || "");
   const [enteredDate, setEnteredDate] = useState(
-    new Date(selectedExpense?.date).toLocaleDateString("fr-CA") || ""
+    (selectedExpense?.date &&
+      new Date(selectedExpense?.date).toLocaleDateString("fr-CA")) ||
+      ""
   );
   const [enteredPrice, setEnteredPrice] = useState(
     selectedExpense?.price || ""
