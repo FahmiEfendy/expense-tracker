@@ -15,3 +15,9 @@
 .expenses-total {
   margin-top: 2rem;
 }
+
+@media screen and (max-width: 350px) {
+  .expenses-total {
+    font-size: 0.75rem;
+  }
+}

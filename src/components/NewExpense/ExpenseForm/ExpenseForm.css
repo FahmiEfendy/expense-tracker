@@ -1,3 +1,7 @@
+h2 {
+  text-align: center;
+}
+
 .new-expense__controls {
   display: flex;
   flex-wrap: wrap;
@@ -51,4 +55,31 @@
 .new-expense button.alternative:hover,
 .new-expense button.alternative:active {
   background-color: #ddb3f8;
+}
+
+@media screen and (max-width: 350px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  .new-expense__control label {
+    font-size: 12px;
+  }
+
+  .new-expense__control input {
+    padding: 0.25rem;
+    font-size: 14px;
+  }
+
+  .new-expense__actions {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .new-expense button {
+    margin: 0 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 1.55rem;
+  }
 }

@@ -1,6 +1,5 @@
 .expenses-filter {
   color: white;
-  padding: 0 1rem;
 }
 
 .expenses-filter__control {
@@ -21,4 +20,19 @@
   padding: 0.5rem 3rem;
   font-weight: bold;
   border-radius: 6px;
+}
+
+@media screen and (max-width: 350px) {
+  .expenses-filter {
+    padding: 0;
+  }
+
+  .expenses-filter label {
+    font-size: 0.75rem;
+  }
+
+  .expenses-filter select {
+    padding: 0.25rem 0.75rem;
+    font-size: 12px;
+  }
 }
