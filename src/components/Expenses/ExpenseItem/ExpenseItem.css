@@ -25,6 +25,7 @@
   flex: 1;
   margin: 0 1rem;
   color: white;
+  text-align: left;
 }
 
 .expense-item__price {
@@ -75,7 +76,7 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   .expense-item h2 {
     font-size: 0.75rem;
   }

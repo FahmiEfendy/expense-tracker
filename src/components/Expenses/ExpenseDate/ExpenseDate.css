@@ -25,7 +25,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   .expense-date {
     width: 3rem;
     height: 3rem;

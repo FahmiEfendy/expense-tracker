@@ -57,7 +57,7 @@ h2 {
   background-color: #ddb3f8;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
   h2 {
     font-size: 18px;
   }
